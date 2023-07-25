@@ -1,0 +1,21 @@
+.searchBar{
+    margin: 0.3rem 1.5rem;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+.inputSearch{
+    padding: 0.3rem;
+    border-radius: 0.4rem;
+    border: 0px;
+    margin-right: 2rem;
+    width: 16rem;
+}
+
+.buttonSearch{
+    padding: 0.4rem 0.6rem;
+    /* font-size: 0.7rem; */
+    background-color: rgb(255, 255, 93);
+    border-radius: 0.4rem;
+    border: 0px;
+}

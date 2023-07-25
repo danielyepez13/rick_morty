@@ -1,0 +1,7 @@
+.nav{
+    width: 100%;
+    background-color: grey;
+    padding: 0.7rem;
+    display: flex;
+    justify-content: flex-end;
+}

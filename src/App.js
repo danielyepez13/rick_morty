@@ -1,24 +1,53 @@
+import { useState } from 'react';
 import './App.css';
-import Card from './components/Card.jsx';
 import Cards from './components/Cards.jsx';
-import SearchBar from './components/SearchBar.jsx';
-import characters, { Rick } from './data.js';
+import Nav from './components/Nav';
+import axios from 'axios';
+// import characters from './data.js';
 
 function App() {
+   const [characters, setCharacters] = useState([]);
+   function onSearch(id) {
+      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+         if (data.name) {
+            // si encuentra un id igual en el caracter que entra retorna falso
+            if(characters.some(char => char.id === data.id)) return false;
+
+            // siempre estarán en el estado characters con keys distintas
+            setCharacters((oldChars) => [...oldChars, data]);
+         } else {
+            window.alert('¡No hay personajes con este ID!');
+         }
+      });
+   }
+   
+   function onRandom(){
+      const random = Math.floor(Math.random() * 826);
+      axios(`https://rickandmortyapi.com/api/character/${random}`).then(({ data }) => {
+         if (data.name) {
+            // si encuentra un id igual en el caracter que entra retorna falso
+            if (characters.some(char => char.id === data.id)) return false;
+
+            // siempre estarán en el estado characters con keys distintas
+            setCharacters((oldChars) => [...oldChars, data]);
+         } else {
+            window.alert('¡No hay personajes con este ID!');
+         }
+      });
+   }
+
+   function onClose(id){
+      setCharacters(
+         characters.filter(char => {
+            return char.id !== Number(id)
+         })
+      )
+   }
+
    return (
       <div className='App'>
-         <SearchBar onSearch={(characterID) => window.alert(characterID)} />
-         <Cards characters={characters} />
-         <Card
-            id={Rick.id}
-            name={Rick.name}
-            status={Rick.status}
-            species={Rick.species}
-            gender={Rick.gender}
-            origin={Rick.origin.name}
-            image={Rick.image}
-            onClose={() => window.alert('Emulamos que se cierra la card')}
-         />
+         <Nav onSearch={onSearch} onRandom={onRandom} />
+         <Cards characters={characters} onClose={onClose} />
       </div>
    );
 }
