@@ -22,7 +22,8 @@ function App() {
    }
    
    function onRandom(){
-      const random = Math.floor(Math.random() * 826);
+      // Retorna del 1 al 826
+      const random = Math.floor(Math.random() * 826) + 1; // sin el +1 retorna del 0 al 825
       axios(`https://rickandmortyapi.com/api/character/${random}`).then(({ data }) => {
          if (data.name) {
             // si encuentra un id igual en el caracter que entra retorna falso

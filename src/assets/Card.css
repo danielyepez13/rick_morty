@@ -1,0 +1,66 @@
+.card {
+    position: relative;
+    display: inline-block;
+    /* border: 1px solid #ccc; */
+    /* padding: 10px; */
+    margin-top: 1rem;
+}
+
+.card img {
+    display: block;
+    max-width: 100%;
+    /* height: auto; */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card .buttonClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background-color: red;
+    color: white;
+    font-size: 1rem;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+}
+
+/* .origin{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #ccc;
+} */
+
+.nombre {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    background-color: yellow;
+    padding: 0 2rem;
+    margin-left: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.spe-gen {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #ccc;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 0.6rem;
+    padding-top: 1rem;
+    padding-bottom: 1.2rem;
+    font-weight: bold;
+}
+
+.species, .gender{
+    margin-top: 0.3rem;
+}

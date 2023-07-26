@@ -1,7 +1,16 @@
 .nav{
     width: 100%;
     background-color: grey;
-    padding: 0.7rem;
+    padding: 0.7rem 0;
     display: flex;
     justify-content: flex-end;
+}
+
+.contenedor-nav{
+    display: flex;
+    justify-content: space-around;
+}
+
+.random{
+    margin: 0 2rem;
 }
